@@ -1,160 +1,39 @@
 body {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  transition: background-color 0.5s ease;
-}
-
-#circle-container {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  background-color: #333;
-  border-radius: 50%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transition: opacity 1s ease;
-}
-
-#candle {
-  position: relative;
-  width: 120px;
-  height: 240px;
-  background-color: #d3a87c;
-  border-radius: 10px;
-  margin-bottom: 40px;
-}
-
-#flame {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 60px;
-  background-color: #ffcc00;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  opacity: 0;
-  transition: opacity 1s ease;
-  animation: flicker 1.5s infinite ease-in-out;
-}
-
-@keyframes flicker {
-  0%, 100% { transform: translateX(-50%) rotate(0deg); }
-  25% { transform: translateX(-50%) rotate(2deg); }
-  50% { transform: translateX(-50%) rotate(-2deg); }
-  75% { transform: translateX(-50%) rotate(1deg); }
-}
-
-#wick {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 30px;
-  background-color: #333;
-}
-
-#options {
-  display: flex;
-  gap: 20px;
-}
-
-button {
-  padding: 15px 30px;
-  font-size: 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  background-color: #555;
-  color: #fff;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #777;
-  transform: scale(1.05);
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1 !important;
-}
-
-.fade-out {
-  opacity: 0 !important;
-}
-
-#moon, #sun {
-  position: absolute;
-  top: 50px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-#moon {
-  left: 100px;
-  background-color: #f0f0f0;
-  box-shadow: 0 0 20px rgba(240, 240, 240, 0.8);
-}
-
-#sun {
-  right: 100px;
-  background-color: #ffcc00;
-  box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
-}
-
-#text-container {
-  position: absolute;
-  right: 790px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 300px;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-#text-container p {
+  align-items: center;
+  background-color: #1c1c1c;
   font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  color: #000;
-  text-align: center;
-  margin: 0;
-  line-height: 1.5;
+  overflow: hidden;
 }
 
 #main-content {
   text-align: center;
 }
 
+/* Efect curcubeu animat */
 .colorful-text {
   background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
   background-size: 1500% 1500%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rainbow 6s linear infinite;
+  font-size: 5rem;
   font-weight: bold;
-  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards, rainbow 6s linear infinite;
 }
 
 @keyframes rainbow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Apare treptat la încărcare */
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
